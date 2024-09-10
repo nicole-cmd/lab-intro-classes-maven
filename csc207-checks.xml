@@ -32,7 +32,7 @@
     <property name="file" value="${org.checkstyle.sun.suppressionfilter.config}"
               default="checkstyle-suppressions.xml" />
     <property name="optional" value="true"/>
-  </module>
+  </module>git@github.com:nicole-cmd/lab-intro-classes-maven.git
 
   <!-- Checks that a package-info.java file exists for each package.     -->
   <!-- See https://checkstyle.org/checks/javadoc/javadocpackage.html#JavadocPackage -->

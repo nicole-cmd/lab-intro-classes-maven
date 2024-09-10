@@ -28,10 +28,10 @@ public class BigFraction {
   // +-----------+
 
   /** The default numerator when creating fractions. */
-  private static final BigInteger DEFAULT_NUMERATOR = BigInteger.valueOf(2);
+  //private static final BigInteger DEFAULT_NUMERATOR = BigInteger.valueOf(2);
 
   /** The default denominator when creating fractions. */
-  private static final BigInteger DEFAULT_DENOMINATOR = BigInteger.valueOf(7);
+  //private static final BigInteger DEFAULT_DENOMINATOR = BigInteger.valueOf(7);
 
   // +--------+-------------------------------------------------------
   // | Fields |
@@ -86,8 +86,12 @@ public class BigFraction {
    *   The fraction in string form
    */
   public BigFraction(String str) {
-    this.num = DEFAULT_NUMERATOR;
-    this.denom = DEFAULT_DENOMINATOR;
+    int index = str.indexOf('/');
+    int temp = Integer.valueOf(str.substring(0, index-1));
+    this.num = BigInteger.valueOf(temp);
+    temp = Integer.valueOf(str.substring(index+1));
+    this.denom = BigInteger.valueOf(temp);
+
   } // BigFraction
 
   // +---------+------------------------------------------------------
@@ -126,6 +130,24 @@ public class BigFraction {
     return new BigFraction(resultNumerator, resultDenominator);
   } // add(BigFraction)
 
+public BigFraction multiply(BigFraction addend){
+  BigInteger numresult;
+  BigInteger denomresult;
+
+  numresult = this.num.multiply(addend.num);
+  denomresult = this.num.multiply(addend.denom);
+
+  return new BigFraction(numresult, denomresult);
+}
+
+
+public BigFraction fractional() {
+  BigInteger numresult; 
+
+  numresult = this.num.mod(this.denom);
+  
+  return new BigFraction(numresult, this.denom);
+}
   /**
    * Get the denominator of this fraction.
    *

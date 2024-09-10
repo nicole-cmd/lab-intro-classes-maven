@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 /**
  * Experiments with Counters.
  *
- * @author Your Name Here
+ * @author Alyssa and Nicole
  */
 public class CounterExperiment {
   /**
